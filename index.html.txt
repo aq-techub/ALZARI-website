@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ALZARI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>ALZARI</h1>
+    <button onclick="viewCart()">Cart (<span id="cart-count">0</span>)</button>
+</header>
+
+<section class="products">
+    <div class="product">
+        <img id="main-img" src="https://via.placeholder.com/300" />
+        
+        <div class="thumbs">
+            <img src="https://via.placeholder.com/100" onclick="changeImage(this)">
+            <img src="https://via.placeholder.com/101" onclick="changeImage(this)">
+            <img src="https://via.placeholder.com/102" onclick="changeImage(this)">
+        </div>
+
+        <h2>Printed Lawn 3PC Suit</h2>
+        <p>Price: Rs <span id="price">4500</span></p>
+
+        <input type="number" id="qty" value="1" min="1">
+        <button onclick="addToCart()">Add to Cart</button>
+    </div>
+</section>
+
+<section id="cart-section" class="hidden">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h3>Total: Rs <span id="total"></span></h3>
+    <button onclick="checkout()">Proceed to Checkout</button>
+</section>
+
+<section id="checkout-section" class="hidden">
+    <h2>Checkout</h2>
+    <form onsubmit="placeOrder(event)">
+        <input type="text" placeholder="Full Name" required><br>
+        <input type="text" placeholder="Phone Number" required><br>
+        <input type="text" placeholder="Address" required><br>
+        <input type="text" placeholder="City" required><br>
+        <button type="submit">Place Order</button>
+    </form>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

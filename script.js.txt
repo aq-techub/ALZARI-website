@@ -1,0 +1,57 @@
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+updateCartCount();
+
+function changeImage(img) {
+    document.getElementById("main-img").src = img.src;
+}
+
+function addToCart() {
+    let qty = document.getElementById("qty").value;
+    let price = document.getElementById("price").innerText;
+
+    cart.push({
+        name: "Printed Lawn 3PC Suit",
+        price: parseInt(price),
+        quantity: parseInt(qty)
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert("Added to cart!");
+}
+
+function updateCartCount() {
+    document.getElementById("cart-count").innerText = cart.length;
+}
+
+function viewCart() {
+    document.getElementById("cart-section").classList.remove("hidden");
+    displayCart();
+}
+
+function displayCart() {
+    let cartItems = document.getElementById("cart-items");
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        cartItems.innerHTML += `
+            <p>${item.name} - ${item.quantity} x Rs ${item.price}</p>
+        `;
+    });
+
+    document.getElementById("total").innerText = total;
+}
+
+function checkout() {
+    document.getElementById("checkout-section").classList.remove("hidden");
+}
+
+function placeOrder(e) {
+    e.preventDefault();
+    alert("Order Placed Successfully!");
+    localStorage.removeItem("cart");
+    location.reload();
+}

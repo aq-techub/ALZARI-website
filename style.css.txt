@@ -1,0 +1,39 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background: black;
+    color: gold;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.products {
+    padding: 20px;
+}
+
+.product img {
+    width: 300px;
+}
+
+.thumbs img {
+    width: 80px;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px;
+    background: black;
+    color: gold;
+    border: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
